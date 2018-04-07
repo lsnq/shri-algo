@@ -18,8 +18,8 @@ function spiralMatrix(n) {
         matrix[y][x] = i;
 
         // проверяем что нас ждет на следующем шаге
-        const cell = matrix[y + directions[0][1]] && (matrix[y + directions[0][1]][x + directions[0][0]] === 0);
-        if (!cell) {
+        const nextCell = matrix[y + directions[0][1]] && (matrix[y + directions[0][1]][x + directions[0][0]] === 0);
+        if (!nextCell) {
             //если все плохо - поворачиваем
             rotate();
         }
@@ -31,6 +31,7 @@ function spiralMatrix(n) {
 
 // вывод в HTML
 function render(matrix) {
+    document.querySelector('.matrix').innerHTML = '';
     matrix.forEach((el) => {
         const row = document.createElement('div');
         row.style.display = 'flex';
@@ -44,6 +45,7 @@ function render(matrix) {
             node.textContent = num;
             row.appendChild(node);
         })
+        
         document.querySelector('.matrix').appendChild(row)
     })
 }
