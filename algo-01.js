@@ -4,4 +4,4 @@ const arrToObj = arr.reduce((a,b)=> {
     a[b['name']] = b['value']
 }, {});
 
-console.log(arrToObj());
+console.log(arrToObj);
